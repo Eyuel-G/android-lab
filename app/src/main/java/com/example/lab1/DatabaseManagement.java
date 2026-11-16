@@ -87,6 +87,26 @@ public class DatabaseManagement extends SQLiteOpenHelper {
         return contactList;
     }
 
+    public int updatedata(String id,String name,String phone ) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_NAME,name);
+        values.put(KEY_PH_NO, phone);
+
+        // updating row
+        return db.update(TABLE_CONTACTS, values, KEY_ID + " = ?",
+                new String[] { id });
+    }
+
+    public int deleteContact(String id,String name,String phone ) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // deleting row
+        return db.delete(TABLE_CONTACTS, KEY_ID + " = ?",
+                new String[] { id });
+    }
+
     public int getContactsCount() {
         String countQuery = "SELECT  * FROM " + TABLE_CONTACTS;
         SQLiteDatabase db = this.getReadableDatabase();

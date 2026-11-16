@@ -20,7 +20,7 @@
             android:value="AIzaSyBnPMYJKeqbH0YDDu6J5pN-94E7Xf-kA5M"/>
 
         <activity
-            android:name=".ContactActivity"
+            android:name=".MapsActivity"
             android:exported="true"
             android:theme="@style/Theme.Lab1"
             android:windowSoftInputMode="adjustResize">
@@ -31,7 +31,7 @@
         </activity>
 
         <activity
-            android:name=".MapsActivity"
+            android:name=".ContactActivity"
             android:exported="true"
             android:theme="@style/Theme.Lab1" />
 

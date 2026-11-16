@@ -2,6 +2,7 @@ package com.example.lab1;
 
 import static android.app.ProgressDialog.show;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,8 +17,10 @@ public class MainActivity extends AppCompatActivity {
 
 TextView text1;
 EditText edit1;
-Button btn1;
+Button btn1, btdelete, btview, btupdate;
 
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +29,10 @@ Button btn1;
         text1 = (TextView) findViewById(R.id.textview1);
         edit1 = (EditText) findViewById(R.id.edt1);
         btn1 = (Button) findViewById(R.id.btn1);
+        btdelete = (Button) findViewById(R.id.delete);
+        btview = (Button) findViewById(R.id.view);
+        btupdate = (Button) findViewById(R.id.update);
+
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

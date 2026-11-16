@@ -19,6 +19,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PointOfInterest;
 
@@ -69,8 +70,18 @@ public class MapsActivity extends FragmentActivity implements
                         .title("Jimma, Ethiopia")
         );
 
+        LatLng dormLocation = new LatLng(7.693765124576024, 36.81646429828056);
+        Marker dormMarker = mMap.addMarker(
+                new MarkerOptions()
+                        .position(dormLocation)
+                        .title("My Dormitory")
+        );
+        if (dormMarker != null) {
+            dormMarker.showInfoWindow();
+        }
+
         mMap.moveCamera(
-                CameraUpdateFactory.newLatLngZoom(defaultLocation, 13f)
+                CameraUpdateFactory.newLatLngZoom(dormLocation, 15f)
         );
 
         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
@@ -78,6 +89,8 @@ public class MapsActivity extends FragmentActivity implements
         mMap.setIndoorEnabled(true);
 
         mUiSettings.setCompassEnabled(true);
+        mUiSettings.setRotateGesturesEnabled(true);
+        mUiSettings.setTiltGesturesEnabled(true);
         mUiSettings.setZoomControlsEnabled(true);
         mUiSettings.setIndoorLevelPickerEnabled(true);
 
@@ -202,6 +215,16 @@ public class MapsActivity extends FragmentActivity implements
                         geocoder.getFromLocationName(locationName, 1);
 
                 runOnUiThread(() -> {
+
+                    LatLng dormLocation = new LatLng(7.693765124576024, 36.81646429828056);
+                    Marker dormMarker = mMap.addMarker(
+                            new MarkerOptions()
+                                    .position(dormLocation)
+                                    .title("My Dormitory")
+                    );
+                    if (dormMarker != null) {
+                        dormMarker.showInfoWindow();
+                    }
 
                     if (addressList != null && !addressList.isEmpty()) {
 
